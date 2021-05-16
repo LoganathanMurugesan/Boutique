@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+// To change the theme, go to https://bootswatch.com/ and check the themes available.
+// Change the sketchy in the syles section of angular.json file  to any other which you like.
+
+.xng-breadcrumb-root{
+    padding:8px 16px;
+    display: inline;
+    border-radius: 0;
+}
+
+label.xng-breadcrumb-trail{
+    margin-bottom: 0;
+    color: orange
+}
+
+.xng-breadcrum-separator{
+    padding: 0 0;
+}
