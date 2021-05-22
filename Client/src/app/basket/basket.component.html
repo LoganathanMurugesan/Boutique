@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-1">
     <div *ngIf="(basket$ | async) === null">
         <p>Basket is empty. Please add your favourite items</p>
     </div>
@@ -65,6 +65,14 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 offset-6">
+                        <app-order-totals></app-order-totals>
+                        <a routerLink="/checkout" class="btn btn-outline-primary py-2 bnt-block">
+                            Proceed to checkout
+                        </a>
                     </div>
                 </div>
             </div>
