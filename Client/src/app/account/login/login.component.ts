@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { validate } from 'uuid';
 import { AccountService } from '../account.service';
 
@@ -11,10 +11,13 @@ import { AccountService } from '../account.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  returnUrl: string;
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //get the return url from the checkout page if anonymous user tries to access it. Else it will set it to home url '/'
+    this.returnUrl = this.activatedRoute.snapshot.queryParams.returnUrl || '/';
     this.createLoginForm();
   }
 
@@ -28,7 +31,7 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     this.accountService.login(this.loginForm.value)
       .subscribe(() =>{
-        this.router.navigateByUrl('/shop');
+        this.router.navigateByUrl(this.returnUrl);
       }, error => {
         console.log(error);
       });
