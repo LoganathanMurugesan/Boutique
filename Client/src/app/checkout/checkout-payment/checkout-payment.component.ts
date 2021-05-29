@@ -26,13 +26,15 @@ export class CheckoutPaymentComponent implements OnInit {
   submitOrder() {
     const basket = this.basketService.getCurrentBasketValue();
     const orderToCreate = this.getOrderToCreate(basket);
+    console.log(orderToCreate);
     this.checkoutService.createOrder(orderToCreate)
       .subscribe((order: IOrder) => {
         this.toastr.success('Order created successfully');
         this.basketService.deleteLocalBasket(basket.id);
         const navigationExtras: NavigationExtras = {state : order};
         this.router.navigate(['checkout/success'], navigationExtras)
-        console.log(order);
+        console.log('Final results after placing order', order);
+        console.log('Current order Id is', order.id);
       }, error => {
           this.toastr.error(error.message);
           console.log(error);
@@ -41,9 +43,9 @@ export class CheckoutPaymentComponent implements OnInit {
 
   getOrderToCreate(basket: IBasket) {
     return {
-      basketId: basket.id,
+      basketId: basket.id, 
       deliveryMethodId: +this.checkoutForm.get('deliveryForm').get('deliveryMethod').value,
-      shipToAddress: this.checkoutForm.get('addressForm').value
+      shippingAddress: this.checkoutForm.get('addressForm').value
     }
   }
 
