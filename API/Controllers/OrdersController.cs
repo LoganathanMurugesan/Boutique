@@ -50,7 +50,7 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<OrderDto>> GetOrderByIdUser(int id)
+        public async Task<ActionResult<OrderToReturnDto>> GetOrderByIdUser(int id)
         {
             var email = HttpContext.User.RetrieveEmailFromPrincipal();
 
