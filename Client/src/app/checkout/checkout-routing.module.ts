@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckoutComponent } from './checkout.component';
 import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
+import { OrdersComponent } from '../orders/orders.component';
 
 const routes: Routes = [
   {path:'', component: CheckoutComponent},

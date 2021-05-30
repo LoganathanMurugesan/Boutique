@@ -14,6 +14,7 @@ export class OrdersComponent implements OnInit {
   constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
+    console.log("order component initialized")
     this.getOrders();
   }
 
@@ -25,5 +26,4 @@ export class OrdersComponent implements OnInit {
           console.log(error);
       });
   }
-
-}
+ }
