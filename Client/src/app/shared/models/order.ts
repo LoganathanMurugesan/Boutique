@@ -17,7 +17,7 @@ export interface IOrder {
     orderItems: IOrderItem[];
     subTotal: number;
     total: number;
-    status: string;
+    status: OrderStatus;
 }
 
 export interface IOrderItem {
@@ -26,5 +26,11 @@ export interface IOrderItem {
     pictureUrl: string;
     quantity: number;
     price: number;
+}
+
+export enum OrderStatus {
+    PENDING,
+    PAYMENTRECEIVED,
+    PAYMENTFAILED
 }
 

@@ -1,3 +1,6 @@
 obj
 bin
 *.rdb
+appsettings.json
+appsettings.Development.json
+**/appsettings.json
