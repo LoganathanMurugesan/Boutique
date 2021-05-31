@@ -149,7 +149,8 @@ export class BasketService {
   }
   
   deleteBasket(basket: IBasket) {
-    return this.http.delete(this.baseUrl + 'basket?basketId' + basket.id).subscribe(
+    console.log('The basket Id for debugging ' , basket.id);
+    return this.http.delete(this.baseUrl + 'basket?basketId=' + basket.id).subscribe(
       () => {
         this.basketSource.next(null);
         this.basketTotalSource.next(null);
